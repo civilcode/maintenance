@@ -1,3 +1,7 @@
+# Fetch env variables from .env
+
+include .env.maintenance
+
 # Configuration
 
 LANG := en_US.UTF-8 # `make list` is language sensitive
@@ -28,7 +32,7 @@ docker.pull:
 docker.restart: docker.stop docker.run
 
 docker.run:
-	docker run --name $(IMAGE_NAME) -d -p 80:80 \
+	docker run --name $(IMAGE_NAME) -d -p $(PORT):80 \
 		--env-file .env.maintenance \
 		--restart=unless-stopped \
 		-v $(pwd):/web \
