@@ -34,11 +34,11 @@ Copy files from local machine to the server that will host the maintenance page:
     scp -P 22 Makefile {username}@{host}:~/Makefile.maintenance
     scp -P 22 env.maintenance.sample {username}@{host}:~
 
-### 3. SSH into the remote server
+### 2. SSH into the remote server
 
 See 1Password for details.
 
-### 4. Configure .env
+### 3. Configure .env
 
     cp env.maintenance.sample .env.maintenance
 
@@ -55,4 +55,10 @@ Change port to 8080 in file `.env.maintenance`
     make docker.build
     make docker.run
     open http://localhost:8080
+    make docker.restart
     make docker.stop
+
+# Future enhancements
+
+- [ ] Support SSL requests
+- [ ] Support multiple ports
