@@ -5,7 +5,7 @@ through environment variables in file `.env.maintenance`.
 
 - `TITLE`: the title to show on the page
 - `MESSAGE`: the message to show on the page
-- `MESSAGE_FILE`: if no message is provided, the content of the given message file (html) will be used.
+- `MESSAGE_FILE`: if no message is provided, the content of the given message file (html) will be used. The container expects the file to be present in the current folder.
 
 ## Deployment
 
@@ -17,7 +17,7 @@ The deployment is done in two separate phases: `push` and `release`.
     # On target
     make -f Makefile.maintenance deploy.release
 
-## Starting and stopping maintenance page server
+## Starting and stopping the maintenance page server
 
 Use the Makefile on the remote server to start, restart and stop the maintenance page server:
 
@@ -48,7 +48,7 @@ Configure the file for your application.
 
 To test the maintenance page locally, you can run the container on your machine:
 
-    cp env.maintance.sample .env.maintenance
+    cp env.maintenance.sample .env.maintenance
 
 Change port to 8080 in file `.env.maintenance`
 
