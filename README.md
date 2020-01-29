@@ -5,7 +5,7 @@ through environment variables in file `.env.maintenance`.
 
 - `TITLE`: the title to show on the page
 - `MESSAGE`: the message to show on the page
-- `MESSAGE_FILE`: if no message is provided, the content of the given message file (html) will be used. The container expects the file to be present in the current folder.
+- `MESSAGE_FILE`: if no message is provided, the content of the given message file (html) will be used. The container expects the file to be present in subfolder `maintenance` in the current folder.
 
 ## Deployment
 
@@ -41,8 +41,11 @@ See 1Password for details.
 ### 3. Configure .env
 
     cp env.maintenance.sample .env.maintenance
+    mkdir maintenance
+    chmod o+x maintenance
 
-Configure the file for your application.
+Configure the file for your application. The maintenance folder must have permission `x` set
+for everyone (otherwise nginx will not be able to read from it).
 
 ## Local testing
 

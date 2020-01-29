@@ -35,7 +35,7 @@ docker.run:
 	docker run --name $(IMAGE_NAME) -d -p $(PORT):80 \
 		--env-file .env.maintenance \
 		--restart=unless-stopped \
-		-v $(shell pwd):/web \
+		-v $(shell pwd)/maintenance:/web \
 		$(DEVELOPER)/$(DOCKERHUB_REPO)
 
 docker.stop:
